@@ -1,18 +1,18 @@
 module wptr_full
 #(
-  parameter ADDRSIZE = 4
+  parameter ADDRSIZE = 8
 )
 (
-  input  logic winc, wclk, wrst_n,
-  input  logic [ADDRSIZE :0] wq2_rptr,
-  output logic wfull,
+  input logic  winc, wclk, wrst_n,
+  input logic  [ADDRSIZE :0] wq2_rptr,
+  output logic  wfull,
   output logic [ADDRSIZE-1:0] waddr,
-  output logic [ADDRSIZE :0] wptr
+  output logic[ADDRSIZE :0] wptr
 );
 
-  logic [ADDRSIZE:0] wbin;
+   logic [ADDRSIZE:0] wbin;
   logic [ADDRSIZE:0] wgraynext, wbinnext;
-
+  logic wfull_val;
   // GRAYSTYLE2 pointer
   always_ff @(posedge wclk or negedge wrst_n)
     if (!wrst_n)
@@ -21,10 +21,11 @@ module wptr_full
       {wbin, wptr} <= {wbinnext, wgraynext};
 
   // Memory write-address pointer (okay to use binary to address memory)
-  assign waddr = wbin[ADDRSIZE-1:0];
-  assign wbinnext = wbin + (winc & ~wfull);
-  assign wgraynext = (wbinnext>>1) ^ wbinnext;
-
+always_comb begin 
+   waddr = wbin[ADDRSIZE-1:0];
+   wbinnext = wbin + (winc & ~wfull);
+   wgraynext = (wbinnext>>1) ^ wbinnext;
+end
   //------------------------------------------------------------------
   // Simplified version of the three necessary full-tests:
   // assign wfull_val=((wgnext[ADDRSIZE] !=wq2_rptr[ADDRSIZE] ) &&
