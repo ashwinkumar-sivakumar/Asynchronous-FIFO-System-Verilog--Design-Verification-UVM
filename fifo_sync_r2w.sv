@@ -2,12 +2,12 @@
 //
 module sync_r2w
 #(
-  parameter ADDRSIZE = 4
+  parameter ADDRSIZE = 8
 )
 (
-  input  logic wclk, wrst_n,
-  input  logic [ADDRSIZE:0] rptr,
-  output logic [ADDRSIZE:0] wq2_rptr
+  input logic   wclk, wrst_n,
+  input logic  [ADDRSIZE:0] rptr,
+  output logic [ADDRSIZE:0] wq2_rptr//readpointer with write side
 );
 
   logic [ADDRSIZE:0] wq1_rptr;
