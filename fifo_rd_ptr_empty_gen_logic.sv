@@ -2,11 +2,11 @@
 //
 module rptr_empty
 #(
-  parameter ADDRSIZE = 4
+  parameter ADDRSIZE = 8
 )
 (
-  input  logic rinc, rclk, rrst_n,
-  input  logic [ADDRSIZE :0] rq2_wptr,
+  input logic  rinc, rclk, rrst_n,
+  input logic  [ADDRSIZE :0] rq2_wptr,
   output logic rempty,
   output logic [ADDRSIZE-1:0] raddr,
   output logic [ADDRSIZE :0] rptr
@@ -25,14 +25,16 @@ module rptr_empty
       {rbin, rptr} <= {rbinnext, rgraynext};
 
   // Memory read-address pointer (okay to use binary to address memory)
-  assign raddr = rbin[ADDRSIZE-1:0];
-  assign rbinnext = rbin + (rinc & ~rempty);
-  assign rgraynext = (rbinnext>>1) ^ rbinnext;
+  always_comb begin
+  	raddr = rbin[ADDRSIZE-1:0];
+  	rbinnext = rbin + (rinc & ~rempty);
+  	rgraynext = (rbinnext>>1) ^ rbinnext;
+  end
 
   //---------------------------------------------------------------
   // FIFO empty when the next rptr == synchronized wptr or on reset
   //---------------------------------------------------------------
-  assign rempty_val = (rgraynext == rq2_wptr);
+     assign rempty_val = (rgraynext == rq2_wptr);
 
   always_ff @(posedge rclk or negedge rrst_n)
     if (!rrst_n)
