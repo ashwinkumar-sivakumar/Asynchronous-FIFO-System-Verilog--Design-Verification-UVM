@@ -1,12 +1,11 @@
-// ashwin module
 module sync_w2r
 #(
-  parameter ADDRSIZE = 4
+  parameter ADDRSIZE = 8
 )
 (
-  input  logic rclk, rrst_n,
-  input  logic [ADDRSIZE:0] wptr,
-  output logic [ADDRSIZE:0] rq2_wptr
+  input logic  rclk, rrst_n,
+  input logic  [ADDRSIZE:0] wptr,
+  output logic[ADDRSIZE:0] rq2_wptr
 );
 
   logic [ADDRSIZE:0] rq1_wptr;
