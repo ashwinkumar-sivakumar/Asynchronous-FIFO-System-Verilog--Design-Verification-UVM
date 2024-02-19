@@ -11,7 +11,7 @@ class transaction;
   logic rrst_n;
   logic wfull;
   logic rempty;
-
+  int uniq_id;
   
   function void print ();
     $display("*******Transaction*******");
