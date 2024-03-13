@@ -4,7 +4,10 @@ class fifo_monitor extends uvm_monitor;
 
 virtual async_fifo_if vif;
 fifo_sequence_item item;
- int i,count_in,count_out; 
+  uvm_analysis_port #(fifo_sequence_item) monitor_port;
+ int i,count_in,count_out,count;
+  bit done;
+
   //--------------------------------------------------------
   //Constructor
   //--------------------------------------------------------
@@ -20,6 +23,7 @@ fifo_sequence_item item;
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
     `uvm_info("MONITOR_CLASS", "Build Phase!", UVM_HIGH)
+     monitor_port = new("monitor_port", this);
     if(!(uvm_config_db #(virtual async_fifo_if)::get(this, "*", "vif", vif))) begin
     `uvm_error("MONITOR_CLASS", "Failed to get VIF from config DB!")
     end
@@ -46,34 +50,38 @@ fifo_sequence_item item;
     `uvm_info("MONITOR_CLASS", "Run Phase!", UVM_HIGH)
 //logic
        item = fifo_sequence_item::type_id::create("item");
+    count =vif.tx_count +10;
     wait(vif.rrst_n);
     forever begin
       fork
        for(int i=0;i <vif.tx_count;i++) begin
+          if(vif.uniq_id ==1)
+               `uvm_info("MONITOR", $sformatf("Inputs wdata= %h, uniq_id=%d",vif.wdata,vif.uniq_id), UVM_LOW)
        @(posedge vif.wclk iff !vif.wfull);
-        
-        if (vif.winc) begin
+         vif.winc <= (i%1 == 0)? 1'b1 : 1'b0;
+         if ((vif.winc)&&(vif.wrst_n==1)) begin
            
            item.wdata =vif.wdata;
            item.uniq_id =vif.uniq_id;
-             if(item.uniq_id ==1)
-               `uvm_info("MONITOR", $sformatf("Inputs wdata= %h, uniq_id=%d",item.wdata,item.uniq_id), UVM_LOW)
+           vif.w_data_q.push_front(item.wdata);
+           vif.m_uniq_id.push_front(item.uniq_id);
+             
        end
         end
         
-       for(int j=0;j<vif.tx_count;j++) begin
-       @(posedge vif.rclk iff !vif.rempty)
-         vif.rinc = (j%3 == 0)? 1'b1 : 1'b0;
-         if ((vif.rinc)&&(j!=0)) begin
+       for(int j=0;j<count;j++) begin
+         @(posedge vif.rclk iff !vif.rempty)
+            vif.rinc <= (j%3 == 0)? 1'b1 : 1'b0;
+         if (vif.rinc) begin
              item.rdata =vif.rdata;
-           
-          
+             monitor_port.write(item);
+           count_out ++;
           end
-      
+         if(count_out ==count-1)
+           done=1;
         end
        
       join
-      
       
     end
 
@@ -81,3 +89,5 @@ fifo_sequence_item item;
 
 
 endclass: fifo_monitor
+         
+         
