@@ -1,9 +1,10 @@
 class fifo_agent extends uvm_agent;
   `uvm_component_utils(fifo_agent)
 
+  fifo_sequencer seqr;
   fifo_driver drv;
   fifo_monitor mon;
-  fifo_sequencer seqr;
+  
   
   //--------------------------------------------------------
   //Constructor
@@ -20,9 +21,10 @@ class fifo_agent extends uvm_agent;
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
     `uvm_info("AGENT_CLASS", "Build Phase!", UVM_HIGH)
-    drv = fifo_driver::type_id::create("drv", this);
-    mon = fifo_monitor::type_id::create("mon", this);
-    seqr = fifo_sequencer::type_id::create("seqr", this);
+      seqr = fifo_sequencer::type_id::create("seqr", this);
+      drv = fifo_driver::type_id::create("drv", this);
+      mon = fifo_monitor::type_id::create("mon", this);
+      
   endfunction: build_phase
 
   
@@ -48,3 +50,4 @@ class fifo_agent extends uvm_agent;
 
 
 endclass: fifo_agent
+
