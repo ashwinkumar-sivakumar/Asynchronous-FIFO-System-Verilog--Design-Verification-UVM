@@ -5,7 +5,7 @@ class fifo_sequence_item extends uvm_sequence_item;
   //Instantiation
     parameter DSIZE = 8;
   
-  rand logic [DSIZE-1:0] wdata;
+  randc logic [DSIZE-1:0] wdata;
   logic winc;
   logic wclk;
   logic wrst_n;
@@ -43,3 +43,4 @@ class fifo_sequence_item extends uvm_sequence_item;
   endfunction: new
     
  endclass :fifo_sequence_item
+
