@@ -1,0 +1,233 @@
+do run.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 22:26:54 on Mar 05,2024
+# vlog -reportprogress 300 ../rtl/design.sv 
+# -- Compiling module async_fifo1
+# -- Compiling module fifomem
+# -- Compiling module rptr_empty
+# -- Compiling module sync_r2w
+# -- Compiling module sync_w2r
+# -- Compiling module wptr_full
+# 
+# Top level modules:
+# 	async_fifo1
+# End time: 22:26:55 on Mar 05,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 22:26:55 on Mar 05,2024
+# vlog -reportprogress 300 testbench.sv 
+# ** Note: (vlog-2286) testbench.sv(4): Using implicit +incdir+C:/questasim64_2023.3/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# ** Warning: testbench.sv(179): (vlog-2244) Variable 'fifo_cov' is implicitly static. You must either explicitly declare it as static or automatic
+# or remove the initialization in the declaration of variable.
+# -- Compiling package testbench_sv_unit
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Warning: sequence.sv(89): (vlog-2240) Treating stand-alone use of function 'randomize' as an implicit VOID cast.
+# -- Compiling interface async_fifo_if
+# -- Compiling module async_fifo1_tb_uvm
+# ** Warning: testbench.sv(179): (vlog-2244) Variable 'fifo_cov' is implicitly static. You must either explicitly declare it as static or automatic
+# or remove the initialization in the declaration of variable.
+# 
+# Top level modules:
+# 	async_fifo1_tb_uvm
+# End time: 22:26:56 on Mar 05,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 3
+# End time: 22:26:58 on Mar 05,2024, Elapsed time: 0:01:56
+# Errors: 0, Warnings: 4
+# vsim -c -voptargs="+acc" async_fifo1_tb_uvm -do "run -all;" 
+# Start time: 22:26:58 on Mar 05,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Warning: sequence.sv(89): (vopt-2240) Treating stand-alone use of function 'randomize' as an implicit VOID cast.
+# ** Warning: testbench.sv(179): (vopt-2244) Variable 'fifo_cov' is implicitly static. You must either explicitly declare it as static or automatic
+# or remove the initialization in the declaration of variable.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=3.
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.testbench_sv_unit(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.async_fifo1_tb_uvm(fast)
+# Loading work.async_fifo_if(fast__2)
+# Loading work.async_fifo1(fast)
+# Loading work.sync_r2w(fast)
+# Loading work.sync_w2r(fast)
+# Loading work.fifomem(fast)
+# Loading work.rptr_empty(fast)
+# Loading work.wptr_full(fast)
+# Loading work.async_fifo_if(fast)
+# Loading C:/questasim64_2023.3/uvm-1.1d\win64\uvm_dpi.dll
+# run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO testbench.sv(101) @ 0: reporter [TEST] 
+# Total diected and  random Test transactions =80
+# 
+# UVM_INFO @ 0: reporter [RNTST] Running test fifo_test...
+# UVM_INFO scoreboard.sv(34) @ 0: uvm_test_top.env.scb [SCB_CLASS] Connect Phase!
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# --------------------------------------------------------------
+# Name                       Type                    Size  Value
+# --------------------------------------------------------------
+# uvm_test_top               fifo_test               -     @471 
+#   env                      fifo_env                -     @478 
+#     agnt                   fifo_agent              -     @485 
+#       drv                  fifo_driver             -     @609 
+#         rsp_port           uvm_analysis_port       -     @624 
+#         seq_item_port      uvm_seq_item_pull_port  -     @616 
+#       mon                  fifo_monitor            -     @632 
+#         monitor_port       uvm_analysis_port       -     @640 
+#       seqr                 fifo_sequencer          -     @500 
+#         rsp_export         uvm_analysis_export     -     @507 
+#         seq_item_export    uvm_seq_item_pull_imp   -     @601 
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#     scb                    fifo_scoreboard         -     @492 
+#       scoreboard_port      uvm_analysis_imp        -     @654 
+# --------------------------------------------------------------
+# 
+# UVM_INFO scoreboard.sv(51) @ 0: uvm_test_top.env.scb [SCB_CLASS] Run Phase!
+# UVM_INFO sequence_item.sv(34) @ 6: uvm_test_top.env.agnt.seqr@@reset_seq.pkt [SEQUENCE_ITEM] Inputs wdata= 45, uniq_id=          1
+# UVM_INFO sequence.sv(51) @ 6: uvm_test_top.env.agnt.seqr@@reset_seq [TEST SEQUENCE] Directed Test: Inputs wdata=45, uniq_id=          1
+# UVM_INFO driver.sv(93) @ 6: uvm_test_top.env.agnt.drv [DRIVER] Inputs wdata= 45, uniq_id=          1
+# UVM_INFO monitor.sv(59) @ 10: uvm_test_top.env.agnt.mon [MONITOR] Inputs wdata= 45, uniq_id=          1
+# UVM_INFO scoreboard.sv(65) @ 55: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 46, Actual: 46, Uniq_id: 2
+# UVM_INFO scoreboard.sv(65) @ 85: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 47, Actual: 47, Uniq_id: 3
+# UVM_INFO scoreboard.sv(65) @ 115: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 48, Actual: 48, Uniq_id: 4
+# UVM_INFO scoreboard.sv(65) @ 145: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 49, Actual: 49, Uniq_id: 5
+# UVM_INFO scoreboard.sv(65) @ 175: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: ff, Actual: ff, Uniq_id: 6
+# UVM_ERROR sequence.sv(35) @ 190: uvm_test_top.env.agnt.seqr@@reset_seq [ASSERTION] This is error inducing testcase, Data has bits with x or z
+# UVM_ERROR sequence.sv(35) @ 194: uvm_test_top.env.agnt.seqr@@reset_seq [ASSERTION] This is error inducing testcase, Data has bits with x or z
+# UVM_INFO scoreboard.sv(65) @ 205: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 00, Actual: 00, Uniq_id: 7
+# UVM_INFO scoreboard.sv(65) @ 235: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 01, Actual: 01, Uniq_id: 8
+# UVM_INFO scoreboard.sv(65) @ 265: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 02, Actual: 02, Uniq_id: 9
+# UVM_INFO scoreboard.sv(65) @ 295: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 04, Actual: 04, Uniq_id: 10
+# UVM_INFO scoreboard.sv(65) @ 325: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 08, Actual: 08, Uniq_id: 11
+# UVM_INFO scoreboard.sv(65) @ 355: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 10, Actual: 10, Uniq_id: 12
+# UVM_INFO scoreboard.sv(65) @ 385: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 20, Actual: 20, Uniq_id: 13
+# UVM_INFO scoreboard.sv(65) @ 415: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 40, Actual: 40, Uniq_id: 14
+# UVM_INFO scoreboard.sv(65) @ 445: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 80, Actual: 80, Uniq_id: 15
+# UVM_INFO scoreboard.sv(65) @ 475: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 01, Actual: 01, Uniq_id: 16
+# UVM_INFO scoreboard.sv(65) @ 505: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 02, Actual: 02, Uniq_id: 17
+# UVM_INFO scoreboard.sv(65) @ 535: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 03, Actual: 03, Uniq_id: 18
+# UVM_INFO scoreboard.sv(65) @ 565: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 04, Actual: 04, Uniq_id: 19
+# UVM_INFO scoreboard.sv(65) @ 595: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 05, Actual: 05, Uniq_id: 20
+# UVM_INFO scoreboard.sv(65) @ 625: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 06, Actual: 06, Uniq_id: 21
+# UVM_INFO scoreboard.sv(65) @ 655: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 07, Actual: 07, Uniq_id: 22
+# UVM_INFO scoreboard.sv(65) @ 685: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 08, Actual: 08, Uniq_id: 23
+# UVM_INFO scoreboard.sv(65) @ 715: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 09, Actual: 09, Uniq_id: 24
+# UVM_INFO scoreboard.sv(65) @ 745: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 10, Actual: 10, Uniq_id: 25
+# UVM_INFO scoreboard.sv(65) @ 775: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 11, Actual: 11, Uniq_id: 26
+# UVM_INFO scoreboard.sv(65) @ 805: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 12, Actual: 12, Uniq_id: 27
+# UVM_INFO scoreboard.sv(65) @ 835: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 13, Actual: 13, Uniq_id: 28
+# UVM_INFO scoreboard.sv(65) @ 865: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 14, Actual: 14, Uniq_id: 29
+# UVM_INFO scoreboard.sv(65) @ 895: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 15, Actual: 15, Uniq_id: 30
+# UVM_INFO scoreboard.sv(65) @ 925: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: ff, Actual: ff, Uniq_id: 31
+# UVM_INFO scoreboard.sv(65) @ 955: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: ff, Actual: ff, Uniq_id: 32
+# UVM_INFO scoreboard.sv(65) @ 985: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: ff, Actual: ff, Uniq_id: 33
+# UVM_INFO scoreboard.sv(65) @ 1015: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: ff, Actual: ff, Uniq_id: 34
+# UVM_INFO scoreboard.sv(65) @ 1045: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: ff, Actual: ff, Uniq_id: 35
+# UVM_INFO scoreboard.sv(65) @ 1075: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: ff, Actual: ff, Uniq_id: 36
+# UVM_INFO scoreboard.sv(65) @ 1105: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: ff, Actual: ff, Uniq_id: 37
+# UVM_INFO scoreboard.sv(65) @ 1135: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: ff, Actual: ff, Uniq_id: 38
+# UVM_INFO scoreboard.sv(65) @ 1165: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: ff, Actual: ff, Uniq_id: 39
+# UVM_INFO scoreboard.sv(65) @ 1195: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: ff, Actual: ff, Uniq_id: 40
+# UVM_INFO scoreboard.sv(65) @ 1225: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 00, Actual: 00, Uniq_id: 41
+# UVM_INFO scoreboard.sv(65) @ 1255: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 00, Actual: 00, Uniq_id: 42
+# UVM_INFO scoreboard.sv(65) @ 1285: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 00, Actual: 00, Uniq_id: 43
+# UVM_INFO scoreboard.sv(65) @ 1315: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 00, Actual: 00, Uniq_id: 44
+# UVM_INFO scoreboard.sv(65) @ 1345: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 00, Actual: 00, Uniq_id: 45
+# UVM_INFO scoreboard.sv(65) @ 1375: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 00, Actual: 00, Uniq_id: 46
+# UVM_INFO scoreboard.sv(65) @ 1405: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: xx, Actual: xx, Uniq_id: 47
+# UVM_INFO scoreboard.sv(65) @ 1435: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: zz, Actual: zz, Uniq_id: 48
+# UVM_INFO scoreboard.sv(65) @ 1465: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 78, Actual: 78, Uniq_id: 48
+# UVM_INFO scoreboard.sv(65) @ 1495: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: b7, Actual: b7, Uniq_id: 49
+# UVM_INFO scoreboard.sv(65) @ 1525: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 8a, Actual: 8a, Uniq_id: 50
+# UVM_INFO scoreboard.sv(65) @ 1555: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: a9, Actual: a9, Uniq_id: 51
+# UVM_INFO scoreboard.sv(65) @ 1585: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 94, Actual: 94, Uniq_id: 52
+# UVM_INFO scoreboard.sv(65) @ 1615: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: a3, Actual: a3, Uniq_id: 53
+# UVM_INFO scoreboard.sv(65) @ 1645: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 06, Actual: 06, Uniq_id: 54
+# UVM_INFO scoreboard.sv(65) @ 1675: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: cf, Actual: cf, Uniq_id: 55
+# UVM_INFO scoreboard.sv(65) @ 1705: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 39, Actual: 39, Uniq_id: 56
+# UVM_INFO scoreboard.sv(65) @ 1735: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: e4, Actual: e4, Uniq_id: 57
+# UVM_INFO scoreboard.sv(65) @ 1765: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: d6, Actual: d6, Uniq_id: 58
+# UVM_INFO scoreboard.sv(65) @ 1795: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 2a, Actual: 2a, Uniq_id: 59
+# UVM_INFO scoreboard.sv(65) @ 1825: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 8c, Actual: 8c, Uniq_id: 60
+# UVM_INFO scoreboard.sv(65) @ 1855: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: be, Actual: be, Uniq_id: 61
+# UVM_INFO scoreboard.sv(65) @ 1885: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 85, Actual: 85, Uniq_id: 62
+# UVM_INFO scoreboard.sv(65) @ 1915: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: c3, Actual: c3, Uniq_id: 63
+# UVM_INFO scoreboard.sv(65) @ 1945: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 68, Actual: 68, Uniq_id: 64
+# UVM_INFO scoreboard.sv(65) @ 1975: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 90, Actual: 90, Uniq_id: 65
+# UVM_INFO scoreboard.sv(65) @ 2005: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: f7, Actual: f7, Uniq_id: 66
+# UVM_INFO scoreboard.sv(65) @ 2035: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: a1, Actual: a1, Uniq_id: 67
+# UVM_INFO scoreboard.sv(65) @ 2065: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: e3, Actual: e3, Uniq_id: 68
+# UVM_INFO scoreboard.sv(65) @ 2095: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 6d, Actual: 6d, Uniq_id: 69
+# UVM_INFO scoreboard.sv(65) @ 2125: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 07, Actual: 07, Uniq_id: 70
+# UVM_INFO scoreboard.sv(65) @ 2155: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 35, Actual: 35, Uniq_id: 71
+# UVM_INFO scoreboard.sv(65) @ 2185: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 16, Actual: 16, Uniq_id: 72
+# UVM_INFO scoreboard.sv(65) @ 2215: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: fd, Actual: fd, Uniq_id: 73
+# UVM_INFO scoreboard.sv(65) @ 2245: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 58, Actual: 58, Uniq_id: 74
+# UVM_INFO scoreboard.sv(65) @ 2275: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: e6, Actual: e6, Uniq_id: 75
+# UVM_INFO scoreboard.sv(65) @ 2305: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 1c, Actual: 1c, Uniq_id: 76
+# UVM_INFO scoreboard.sv(65) @ 2335: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 3f, Actual: 3f, Uniq_id: 77
+# UVM_INFO scoreboard.sv(65) @ 2365: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 3f, Actual: 3f, Uniq_id: 77
+# UVM_INFO scoreboard.sv(65) @ 2395: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 3f, Actual: 3f, Uniq_id: 77
+# UVM_INFO scoreboard.sv(65) @ 2425: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 3f, Actual: 3f, Uniq_id: 77
+# UVM_INFO scoreboard.sv(65) @ 2455: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 3f, Actual: 3f, Uniq_id: 77
+# UVM_INFO scoreboard.sv(65) @ 2485: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 3f, Actual: 3f, Uniq_id: 77
+# UVM_INFO scoreboard.sv(65) @ 2515: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 3f, Actual: 3f, Uniq_id: 77
+# UVM_INFO scoreboard.sv(65) @ 2545: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 3f, Actual: 3f, Uniq_id: 77
+# UVM_INFO scoreboard.sv(65) @ 2575: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 3f, Actual: 3f, Uniq_id: 77
+# UVM_INFO scoreboard.sv(65) @ 2605: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 3f, Actual: 3f, Uniq_id: 77
+# UVM_INFO scoreboard.sv(65) @ 2635: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 3f, Actual: 3f, Uniq_id: 77
+# UVM_INFO scoreboard.sv(65) @ 2665: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 3f, Actual: 3f, Uniq_id: 77
+# UVM_INFO scoreboard.sv(65) @ 2695: uvm_test_top.env.scb [SCOREBOARD] PASS! Expected: 3f, Actual: 3f, Uniq_id: 77
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 2695: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :  101
+# UVM_WARNING :    0
+# UVM_ERROR :    2
+# UVM_FATAL :    0
+# ** Report counts by id
+# [ASSERTION]     2
+# [DRIVER]     1
+# [MONITOR]     1
+# [Questa UVM]     2
+# [RNTST]     1
+# [SCB_CLASS]     2
+# [SCOREBOARD]    89
+# [SEQUENCE_ITEM]     1
+# [TEST]     1
+# [TEST SEQUENCE]     1
+# [TEST_DONE]     1
+# [UVMTOP]     1
+# ** Note: $finish    : C:/questasim64_2023.3/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 2695 ns  Iteration: 57  Instance: /async_fifo1_tb_uvm
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at C:/questasim64_2023.3/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
+# 

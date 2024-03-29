@@ -1,0 +1,101 @@
+do run.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 23:14:10 on Mar 05,2024
+# vlog -reportprogress 300 ../rtl/design.sv 
+# -- Compiling module async_fifo1
+# -- Compiling module fifomem
+# -- Compiling module rptr_empty
+# -- Compiling module sync_r2w
+# -- Compiling module sync_w2r
+# -- Compiling module wptr_full
+# 
+# Top level modules:
+# 	async_fifo1
+# End time: 23:14:10 on Mar 05,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 23:14:10 on Mar 05,2024
+# vlog -reportprogress 300 testbench.sv 
+# -- Compiling interface async_fifo_if
+# -- Compiling package testbench_sv_unit
+# -- Compiling module test
+# -- Compiling module async_fifo1_tb_uvm
+# 
+# Top level modules:
+# 	async_fifo1_tb_uvm
+# End time: 23:14:10 on Mar 05,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -c -voptargs="+acc" async_fifo1_tb_uvm -do "run -all;" 
+# Start time: 23:14:10 on Mar 05,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.testbench_sv_unit(fast)
+# Loading work.async_fifo1_tb_uvm(fast)
+# Loading work.async_fifo_if(fast__2)
+# Loading work.test(fast)
+# Loading work.async_fifo1(fast)
+# Loading work.sync_r2w(fast)
+# Loading work.sync_w2r(fast)
+# Loading work.fifomem(fast)
+# Loading work.rptr_empty(fast)
+# Loading work.wptr_full(fast)
+# Loading work.async_fifo_if(fast)
+# run -all
+# [ DRIVER ] ****** RESET STARTED ******
+# [ DRIVER ] ****** RESET ENDED ******
+# [ GENERATOR ] ****** GENERATOR STARTED ******
+# [ DRIVER ] ****** DRIVER STARTED ******
+# [ MONITOR_IN ] ****** MONITOR_IN STARTED ******
+# [ MONITOR_OUT ] ****** MONITOR_OUT STARTED ******
+# [ GENERATOR ]wdata  =f7, uniq_id=          1
+# [ DRIVER ] wdata =f7 uniq_id =          1 
+# 
+# [ MONITOR]wdata =f7,uniq_id =          1 
+# 
+# [SCOREBOARD] wdata =f7, uniq_id=          1
+# PASS : expected wdata = f7, rdata = f7, uniq_id=          1
+# PASS : expected wdata = 34, rdata = 34, uniq_id=          2
+# PASS : expected wdata = 68, rdata = 68, uniq_id=          3
+# PASS : expected wdata = b4, rdata = b4, uniq_id=          4
+# PASS : expected wdata = 10, rdata = 10, uniq_id=          5
+# PASS : expected wdata = a2, rdata = a2, uniq_id=          6
+# PASS : expected wdata = 68, rdata = 68, uniq_id=          7
+# PASS : expected wdata = de, rdata = de, uniq_id=          8
+# PASS : expected wdata = 6b, rdata = 6b, uniq_id=          9
+# PASS : expected wdata = 93, rdata = 93, uniq_id=         10
+# PASS : expected wdata = 40, rdata = 40, uniq_id=         11
+# PASS : expected wdata = cf, rdata = cf, uniq_id=         12
+# PASS : expected wdata = 54, rdata = 54, uniq_id=         13
+# PASS : expected wdata = 96, rdata = 96, uniq_id=         14
+# PASS : expected wdata = 6f, rdata = 6f, uniq_id=         15
+# PASS : expected wdata = e4, rdata = e4, uniq_id=         16
+# PASS : expected wdata = 49, rdata = 49, uniq_id=         17
+# PASS : expected wdata = 03, rdata = 03, uniq_id=         18
+# PASS : expected wdata = a5, rdata = a5, uniq_id=         19
+# PASS : expected wdata = ed, rdata = ed, uniq_id=         20
+# PASS : expected wdata = 77, rdata = 77, uniq_id=         21
+# PASS : expected wdata = 89, rdata = 89, uniq_id=         22
+# PASS : expected wdata = e0, rdata = e0, uniq_id=         23
+# PASS : expected wdata = 83, rdata = 83, uniq_id=         24
+# PASS : expected wdata = fc, rdata = fc, uniq_id=         25
+# PASS : expected wdata = 90, rdata = 90, uniq_id=         26
+# PASS : expected wdata = 59, rdata = 59, uniq_id=         27
+# PASS : expected wdata = 9b, rdata = 9b, uniq_id=         28
+# PASS : expected wdata = 86, rdata = 86, uniq_id=         29
+# PASS : expected wdata = 34, rdata = 34, uniq_id=         30
+# PASS : expected wdata = 89, rdata = 89, uniq_id=         31
+# PASS : expected wdata = 07, rdata = 07, uniq_id=         32
+# [ GENERATOR ] ****** GENERATOR ENDED ******
+# PASS : expected wdata = c5, rdata = c5, uniq_id=         33
+# TOTAL OF 100 transactions has been sent, of which 100 are valid (valid_in high)
+# ** Note: $finish    : env.sv(61)
+#    Time: 21315 ns  Iteration: 2  Instance: /async_fifo1_tb_uvm/test_inst
+# 1
+# Break in Task testbench_sv_unit/environment::run at env.sv line 61
+# 
+# End time: 23:14:40 on Mar 05,2024, Elapsed time: 0:00:30
+# Errors: 0, Warnings: 4

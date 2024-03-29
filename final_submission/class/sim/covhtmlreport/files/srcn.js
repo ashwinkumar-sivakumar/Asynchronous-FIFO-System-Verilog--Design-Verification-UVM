@@ -1,0 +1,2 @@
+var g_data = ["","transaction.sv","generator.sv","driver.sv","monitor_in.sv","monitor_out.sv","scoreboard.sv","env.sv","testbench.sv","interface.sv","test.sv","../rtl/design.sv"];
+processSrcNamesData(g_data);

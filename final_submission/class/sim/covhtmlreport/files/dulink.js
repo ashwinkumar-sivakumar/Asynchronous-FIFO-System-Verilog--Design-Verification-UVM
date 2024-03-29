@@ -1,0 +1,2 @@
+var g_data = {"5":["work.async_fifo1",83.65,1],"2":["work.async_fifo1_tb_uvm",100.00,1],"3":["work.async_fifo_if",50.89,1],"8":["work.fifomem",98.57,1],"9":["work.rptr_empty",93.96,1],"6":["work.sync_r2w",90.80,1],"7":["work.sync_w2r",95.97,1],"4":["work.test",100.00,1],"1":["work.testbench_sv_unit",86.63,1],"10":["work.wptr_full",97.19,1]};
+processDuLinks(g_data);
